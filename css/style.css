@@ -1,0 +1,243 @@
+/* ========================================================
+   ESTILOS GENERALES
+======================================================== */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header dinámico desde PHP */
+header {
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Banner superior */
+.banner {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 20px auto 10px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========================================================
+   CONTENEDORES
+======================================================== */
+
+/* Grid general para páginas como tráfico, conexiones, etc */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Wrapper especial para formularios (personalización) */
+.formulario-wrapper {
+    background: white;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Scroll horizontal (gráficos y listas) */
+.scroll-x {
+    overflow-x: auto;
+}
+
+/* ========================================================
+   TARJETAS
+======================================================== */
+.card, .grafico {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.card h3, .grafico h3 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card i, .grafico i {
+    font-size: 1.4rem;
+    color: #888;
+}
+
+/* TX realtime highlight */
+.tx-card {
+    transition: background-color 0.3s ease;
+}
+
+/* ========================================================
+   TABLAS
+======================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #0d47a1;
+    color: white;
+}
+
+/* ========================================================
+   BADGES (Nodos / Estaciones)
+======================================================== */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.bg-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.bg-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+/* ========================================================
+   EFECTOS ESPECIALES
+======================================================== */
+@keyframes parpadeoCritico {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.parpadeo {
+    animation: parpadeoCritico 1s infinite;
+}
+
+/* ========================================================
+   MENSAJES DE ÉXITO
+======================================================== */
+.mensaje-exito {
+    background-color: #e3f2fd;
+    border-left: 4px solid #0d47a1;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #0d47a1;
+    font-weight: bold;
+}
+
+/* ========================================================
+   FORMULARIOS GENERALES
+======================================================== */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+form input[type="text"],
+form input[type="file"],
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+    margin-bottom: 10px;
+}
+
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Botones */
+button {
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #08306b;
+}
+
+/* ========================================================
+   LISTAS
+======================================================== */
+#graficoUltimos li,
+#listaUltimos li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ========================================================
+   FOOTER
+======================================================== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* SOLO LAS PÁGINAS QUE USAN GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
