@@ -40,6 +40,8 @@ Este proyecto nace como parte del ecosistema de dashboards abiertos:
 
 ---
 
+## 👉 [Ver instalacion](install.md) 
+
 
 
 ## 🧑‍💻 Autor
