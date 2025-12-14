@@ -1,6 +1,6 @@
 # 🌐 LuxLink Fusion — Dashboard YSF / C4FM  
-**Sistema de visualización avanzada para Reflectores YSF / Fusion**  
-**Desarrollado por TelecoViajero – CA2RDP**
+**Sistema de visualización web para Reflectores YSF / Fusion**  
+**Desarrollado por CA2RDP - Telecoviajero**
 
 LuxLink Fusion es un dashboard moderno, rápido y personalizable para visualizar en tiempo real la actividad de un reflector **YSF / C4FM**, con mapa integrado, estado del servidor, estaciones conectadas, tráfico actual, historial, alertas y panel de administración protegido.
 
@@ -24,8 +24,7 @@ Este proyecto nace como parte del ecosistema de dashboards abiertos:
 - Estado del reflector YSF.
 
 ### 🧭 Panel de administración
-- Sidebar moderno y responsivo.  
-- Acceso protegido (contraseña en la misma página).  
+- Acceso protegido (password por defecto: luxlink2024).  
 - Personalización de:
   - Título  
   - Colores primario/secundario  
@@ -46,8 +45,8 @@ Este proyecto nace como parte del ecosistema de dashboards abiertos:
 
 ## 🧑‍💻 Autor
 
-TelecoViajero – CA2RDP
-Radioaficionado, desarrollador autodidacta y creador de ecosistemas digitales:
+CA2RDP - TelecoViajero
+Radioaficionado, desarrollador autodidacta y creador de contenidos digitales:
 
 📺 YouTube: https://www.youtube.com/@Telecoviajero
 🌐 GitHub: https://github.com/telecov
