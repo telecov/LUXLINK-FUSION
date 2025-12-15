@@ -185,7 +185,13 @@ function cargarDatosYSF() {
 
         tbody.innerHTML += `
           <tr style="background:${color}">
-            <td>${item.indicativo}</td>
+            <td>
+                <a href="https://www.qrz.com/db/${item.indicativo}"
+                        target="_blank"
+                        class="qrz-link">
+                        ${item.indicativo}
+                </a>
+            </td>
             <td>${item.ip}</td>
             <td>${item.puerto}</td>
             <td>${tipo}</td>
@@ -203,7 +209,13 @@ function cargarDatosYSF() {
         podioTbody.innerHTML += `
           <tr>
             <td>${m}</td>
-            <td>${u.indicativo}</td>
+            <td>
+                <a href="https://www.qrz.com/db/${u.indicativo}"
+                target="_blank"
+                class="qrz-link">
+                ${u.indicativo}
+                </a>
+            </td>
             <td>${u.tx}</td>
             <td>${u.ultima}</td>
           </tr>
@@ -220,8 +232,15 @@ function cargarDatosYSF() {
         lastTbody.innerHTML += `
           <tr>
             <td>${e.hora}</td>
-            <td>${e.de}</td>
-            <td>${e.a}</td>
+            <td>
+  <a href="https://www.qrz.com/db/${e.de}"
+     target="_blank"
+     class="qrz-link">
+     ${e.de}
+  </a>
+</td>
+<td>${e.a}</td>
+
           </tr>
         `;
       });
