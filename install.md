@@ -211,6 +211,7 @@ Activa el servicio
 sudo systemctl daemon-reload
 sudo systemctl enable luxlink-monitor.service
 sudo systemctl start luxlink-monitor.service
+sudo systemctl status luxlink-monitor.service
 ```
 
 3. Acceso WEB
