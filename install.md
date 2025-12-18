@@ -167,7 +167,7 @@ sudo apt install network-manager -y
 sudo apt install git -y
 ```
 
-1. Copia la carpeta completa **LYNK25** a tu servidor web:  
+1. Copia la carpeta completa **LUXLINK FUSION** a tu servidor web:  
 ```bash
 cd /var/www/
 sudo rm -rf /var/www/html
