@@ -1,12 +1,29 @@
 <?php
 session_start();
-$clave_configuracion = 'luxlink2024'; // Puedes cambiarla
+
+/* ===============================
+   SEGURIDAD CONFIGURACIÓN (HASH)
+================================ */
+
+$config_file = __DIR__ . '/config_seguridad.json';
+
+// Si no existe, crear con clave por defecto: luxlink2024
+if (!file_exists($config_file)) {
+    $hash = password_hash('luxlink2024', PASSWORD_DEFAULT);
+    file_put_contents($config_file, json_encode([
+        'password_hash' => $hash
+    ], JSON_PRETTY_PRINT));
+}
+
+// Cargar hash guardado
+$config_seguridad = json_decode(file_get_contents($config_file), true);
+$hash_guardado = $config_seguridad['password_hash'] ?? '';
 
 // Validación de acceso
 if (!isset($_SESSION['acceso_configuracion'])) {
-    if (!isset($_POST['clave']) || $_POST['clave'] !== $clave_configuracion) {
+    if (!isset($_POST['clave']) || !password_verify($_POST['clave'], $hash_guardado)) {
 
-        echo '<form method="post" 
+        echo '<form method="post"
                 style="
                 max-width:400px;
                 margin:80px auto;
@@ -27,7 +44,7 @@ if (!isset($_SESSION['acceso_configuracion'])) {
                 margin-bottom:15px;
                 border:1px solid #ccc;
                 border-radius:6px;
-                ">
+                " required>
 
             <button type="submit"
                 style="
@@ -50,8 +67,9 @@ if (!isset($_SESSION['acceso_configuracion'])) {
     }
 }
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', 1);
+/* ===============================
+   CARGAR CONFIGURACIONES EXISTENTES
+================================ */
 
 // Cargar configuración YSFReflector.ini
 $ini = [];
@@ -77,6 +95,7 @@ $name  = $ini['Info']['Name'] ?? '';
 $desc  = $ini['Info']['Description'] ?? '';
 $port  = $ini['Network']['Port'] ?? '';
 
+// IPs + WiFi
 $ip_eth  = trim(shell_exec("hostname -I | awk '{print $1}'"));
 $ip_wlan = trim(shell_exec("hostname -I | awk '{print $2}'"));
 $redes   = shell_exec("sudo nmcli -t -f SSID device wifi list");
@@ -90,14 +109,14 @@ $telegram_cfg  = file_exists($telegram_json)
 
 $token_actual   = $telegram_cfg['token'] ?? '';
 $chat_id_actual = $telegram_cfg['chat_id'] ?? '';
-$canal_actual = $telegram_cfg['canal'] ?? '';
+$canal_actual   = $telegram_cfg['canal'] ?? '';
 
 // Cargar estilo dinámico
 $estilo = json_decode(@file_get_contents(__DIR__ . '/includes/estilo.json'), true);
-$colorPrimario = $estilo['color_primario'] ?? '#0d47a1';
+$colorPrimario   = $estilo['color_primario']   ?? '#0d47a1';
 $colorSecundario = $estilo['color_secundario'] ?? '#eeeeee';
-$banner = $estilo['banner'] ?? 'banner_luxlinkfusion.jpg';
-$titulo = $estilo['titulo'] ?? 'LuxLink Fusion';
+$banner          = $estilo['banner']           ?? 'banner_luxlinkfusion.jpg';
+$titulo          = $estilo['titulo']           ?? 'LuxLink Fusion';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -110,12 +129,29 @@ $titulo = $estilo['titulo'] ?? 'LuxLink Fusion';
     <link rel="stylesheet" href="css/style_sidebar.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body style="background-color: <?= htmlspecialchars($colorSecundario) ?>;">
 
-
-<header style="background-color: <?= htmlspecialchars($colorPrimario) ?>;">
+<header style="background-color: <?= htmlspecialchars($colorPrimario) ?>; position:relative;">
     <h1>CONFIGURACION LUXLINK FUSION</h1>
-    </header>
+
+    <!-- BOTÓN CERRAR SESIÓN -->
+    <form action="logout.php" method="post"
+          style="position:absolute; top:14px; right:18px;">
+        <button type="submit"
+            style="
+            background:#c62828;
+            color:white;
+            border:none;
+            padding:8px 14px;
+            border-radius:8px;
+            font-weight:bold;
+            cursor:pointer;
+            ">
+            🔒 Cerrar sesión
+        </button>
+    </form>
+</header>
 
 <?php include 'includes/sidebar.php'; ?>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -147,7 +183,7 @@ $titulo = $estilo['titulo'] ?? 'LuxLink Fusion';
         </form>
     </div>
 
-        <!-- Telegram -->
+    <!-- Telegram -->
     <div class="grafico">
         <h3>Configuración de Telegram</h3>
         <form action="guardar_telegram.php" method="post">
@@ -172,32 +208,70 @@ $titulo = $estilo['titulo'] ?? 'LuxLink Fusion';
             <button type="submit">Guardar Configuración</button>
 
             <a href="probar_telegram.php"
-                style="
-                display:block;
-                background:#4caf50;
-                color:white;
-                padding:12px;
-                text-align:center;
-                border-radius:6px;
-                text-decoration:none;
-                margin-top:10px;
-                font-weight:bold;
-                ">
-                Probar Telegram
+               style="
+               display:block;
+               background:#4caf50;
+               color:white;
+               padding:12px;
+               text-align:center;
+               border-radius:6px;
+               text-decoration:none;
+               margin-top:10px;
+               font-weight:bold;
+               ">
+               Probar Telegram
             </a>
         </form>
     </div>
 
-
     <!-- Acciones -->
     <div class="grafico">
         <h3>Acciones del Sistema</h3>
+
+        <!-- Mantengo tu form ORIGINAL para start/stop/restart -->
         <form action="accion_servicio.php" method="post"
-            style="display:flex;flex-wrap:wrap;gap:10px;">
+              style="display:flex;flex-wrap:wrap;gap:10px;">
             <button name="accion" value="start">Iniciar Servicio</button>
             <button name="accion" value="stop">Detener Servicio</button>
             <button name="accion" value="restart">Reiniciar Servicio</button>
-            <button name="accion" value="reboot">Reiniciar Servidor</button>
+
+            <!-- Reboot protegido -->
+            <button type="button" onclick="confirmarReboot()"
+                    style="background:#b71c1c;color:white;">
+                ⚠ Reiniciar Servidor
+            </button>
+        </form>
+
+        <!-- Form oculto SOLO para reboot -->
+        <form id="formReboot" action="accion_servicio.php" method="post" style="display:none;">
+            <input type="hidden" name="accion" value="reboot">
+        </form>
+    </div>
+
+    <!-- Seguridad (cambiar clave) -->
+    <div class="grafico">
+        <h3>🔐 Seguridad</h3>
+
+        <form action="cambiar_clave.php" method="post">
+
+            <div class="form-group">
+                <label>Nueva contraseña</label>
+                <input type="password" name="nueva_clave" required>
+            </div>
+
+            <div class="form-group">
+                <label>Repetir contraseña</label>
+                <input type="password" name="repetir_clave" required>
+            </div>
+
+            <button type="submit">Cambiar contraseña</button>
+
+            <?php if (isset($_GET['clave']) && $_GET['clave'] === 'ok'): ?>
+                <p style="color:green;font-weight:bold;margin-top:10px;">
+                    ✔ Contraseña cambiada correctamente
+                </p>
+            <?php endif; ?>
+
         </form>
     </div>
 
@@ -272,9 +346,21 @@ $titulo = $estilo['titulo'] ?? 'LuxLink Fusion';
      2024 -2025 Telecoviajero – CA2RDP.
 </div>
 
-
 <script>
   lucide.createIcons();
+
+  function confirmarReboot() {
+      const ok = confirm(
+          "⚠ ATENCIÓN\n\n" +
+          "Estás a punto de reiniciar el servidor.\n" +
+          "Esto desconectará todos los servicios.\n\n" +
+          "¿Deseas continuar?"
+      );
+
+      if (ok) {
+          document.getElementById("formReboot").submit();
+      }
+  }
 </script>
 
 </body>
