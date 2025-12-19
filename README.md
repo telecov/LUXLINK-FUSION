@@ -51,7 +51,7 @@ Este proyecto nace como parte del ecosistema de dashboards abiertos:
 CA2RDP - TelecoViajero
 Radioaficionado, desarrollador autodidacta y creador de contenidos digitales:
 
-# 🌐 GitHub: https://github.com/telecov
-# 🔗 TikTok: https://tiktok.com/@telecoviajero
-# 🔗 Instagram: https://instagram.com/telecoviajero
-# 📺 YouTube: https://www.youtube.com/@Telecoviajero
+* 🌐 GitHub: https://github.com/telecov
+* 🔗 TikTok: https://tiktok.com/@telecoviajero
+* 🔗 Instagram: https://instagram.com/telecoviajero
+* 📺 YouTube: https://www.youtube.com/@Telecoviajero
