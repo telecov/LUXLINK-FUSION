@@ -1,13 +1,15 @@
-
 <?php
 $estilo = json_decode(@file_get_contents(__DIR__ . '/includes/estilo.json'), true);
+$versionData = json_decode(@file_get_contents(__DIR__ . '/includes/version.json'), true);
 
+$versionSistema = $versionData['version'] ?? 'dev';
 $colorPrimario   = $estilo['color_primario']   ?? '#0d47a1';
 $colorSecundario = $estilo['color_secundario'] ?? '#eeeeee';
 $titulo          = $estilo['titulo']           ?? 'LucasReflector - Dashboard';
 $banner = 'img/' . ($estilo['banner'] ?? 'banner_luxlinkfusion.jpg');
 $zonaHoraria     = $estilo['zona_horaria']     ?? 'America/Santiago';
 $ciudadClima     = $estilo['ubicacion_clima']  ?? 'Santiago';
+$unidadTemp = $estilo['unidad_temperatura'] ?? 'F';
 $radioaficionado = $estilo['radioaficionado']  ?? 'Radioaficionado';
 
 date_default_timezone_set($zonaHoraria);
@@ -117,18 +119,19 @@ $hora_actual = date('H:i');
 </div>
 
 <div class="footer">
-  🚀 Dashboard web LUXLINK FUSION Desarrollado por <strong>Telecoviajero - CA2RDP</strong> |
+  🚀 Dashboard web LUXLINK FUSION Desarrollado por <strong>Telecoviajero - CA2RDP</strong> | version <?= htmlspecialchars($versionSistema) ?>
      <a href="https://github.com/telecov/LUXLINK-FUSION" target="_blank" class="text-info text-decoration-none">GitHub</a>
      2024 -2025 Telecoviajero – CA2RDP.
 </div>
 
-  
+
 
 <script>
   const CONFIG = {
     ciudadClima: "<?= htmlspecialchars($ciudadClima) ?>",
     zonaHoraria: "<?= htmlspecialchars($zonaHoraria) ?>",
     radioaficionado: "<?= htmlspecialchars($radioaficionado) ?>",
+    unidadTemperatura: "<?= htmlspecialchars($unidadTemp) ?>"
     // agrega más variables si las necesitas...
   };
 </script>
@@ -138,3 +141,4 @@ $hora_actual = date('H:i');
 
 </body>
 </html>
+
