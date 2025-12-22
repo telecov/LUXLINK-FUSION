@@ -1,9 +1,10 @@
 {
     "titulo": "LuxLink Fusion",
-    "radioaficionado": "CA2RDP",
-    "color_primario": "#00129e",
-    "color_secundario": "#ffffff",
+    "radioaficionado": "Radioaficionado",
+    "color_primario": "#0d47a1",
+    "color_secundario": "#eeeeee",
     "zona_horaria": "America/Santiago",
-    "ubicacion_clima": "LA SERENA",
-    "banner": "banner_luxlinkfusion.png"
+    "ubicacion_clima": "La Serena",
+    "unidad_temperatura": "C",
+    "banner": "banner_luxlinkfusion.jpg"
 }
