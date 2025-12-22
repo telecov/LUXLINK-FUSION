@@ -40,6 +40,12 @@ if (file_exists($estiloFile)) {
    NUEVA CONFIGURACIÓN (CON FALLBACK)
 ================================================== */
 
+// Unidad temperatura (solo C o F)
+$unidadTemp = strtoupper(trim($_POST['unidad_temperatura'] ?? ($prev['unidad_temperatura'] ?? 'C')));
+if (!in_array($unidadTemp, ['C', 'F'], true)) {
+    $unidadTemp = 'C';
+}
+
 $data = [
     'titulo'           => $_POST['titulo']           ?? ($prev['titulo'] ?? 'LuxLink Fusion'),
     'radioaficionado'  => $_POST['radioaficionado']  ?? ($prev['radioaficionado'] ?? 'Radioaficionado'),
@@ -47,6 +53,7 @@ $data = [
     'color_secundario' => $_POST['color_secundario'] ?? ($prev['color_secundario'] ?? '#eeeeee'),
     'zona_horaria'     => $_POST['zona_horaria']     ?? ($prev['zona_horaria'] ?? 'America/Santiago'),
     'ubicacion_clima'  => $_POST['ubicacion_clima']  ?? ($prev['ubicacion_clima'] ?? 'Santiago'),
+    'unidad_temperatura' => $unidadTemp,
     'banner'           => $prev['banner'] ?? 'banner_luxlinkfusion.jpg'
 ];
 
@@ -94,4 +101,3 @@ file_put_contents(
 
 header('Location: ../personalizacion.php?exito=1');
 exit;
-
