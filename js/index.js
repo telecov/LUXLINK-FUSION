@@ -58,15 +58,38 @@ actualizarHora();
 =========================== */
 function cargarClima() {
   fetch("https://wttr.in/" + encodeURIComponent(CONFIG.ciudadClima) + "?format=j1")
-    .then(res=>res.json())
-    .then(data=>{
+    .then(res => res.json())
+    .then(data => {
+
       const c = data.current_condition[0];
       const condicion = c.weatherDesc[0].value;
-      const temp = c.temp_C;
-      const hum  = c.humidity;
-      const viento = c.windspeedKmph;
-      const tempMax = data.weather[0].maxtempC;
-      const tempMin = data.weather[0].mintempC;
+
+      // Base en Celsius
+      let temp     = parseFloat(c.temp_C);
+      let tempMax  = parseFloat(data.weather[0].maxtempC);
+      let tempMin  = parseFloat(data.weather[0].mintempC);
+      let viento   = parseFloat(c.windspeedKmph);
+
+      let unidadTemp = "°C";
+      let unidadViento = "km/h";
+
+      // 🌡️ Conversión si está en Fahrenheit
+      if (CONFIG.unidadTemperatura === "F") {
+        temp    = (temp * 9/5) + 32;
+        tempMax = (tempMax * 9/5) + 32;
+        tempMin = (tempMin * 9/5) + 32;
+        viento  = viento * 0.621371;
+
+        unidadTemp = "°F";
+        unidadViento = "mph";
+      }
+
+      temp    = Math.round(temp);
+      tempMax = Math.round(tempMax);
+      tempMin = Math.round(tempMin);
+      viento  = Math.round(viento);
+
+      const hum = c.humidity;
 
       let icon = "🌡️";
       if (condicion.toLowerCase().includes("cloud")) icon = "☁️";
@@ -84,15 +107,20 @@ function cargarClima() {
       card.classList.add("text-white");
 
       document.getElementById("climaInfo").innerHTML = `
-        <strong>${icon} ${CONFIG.ciudadClima} </strong><br>
-        ${temp}°C - 🌡️ Mín: ${tempMin}° / Máx: ${tempMax}° <br>
-        💧 ${hum}% - 🌬️ ${viento} km/h <br>
+        <strong>${icon} ${CONFIG.ciudadClima}</strong><br>
+        ${temp}${unidadTemp} - 🌡️ Mín: ${tempMin}${unidadTemp} / Máx: ${tempMax}${unidadTemp}<br>
+        💧 ${hum}% - 🌬️ ${viento} ${unidadViento}<br>
         <small>${condicion}</small>
       `;
+    })
+    .catch(() => {
+      document.getElementById("climaInfo").innerHTML = "⚠️ No se pudo cargar el clima";
     });
 }
+
 cargarClima();
-setInterval(cargarClima,600000);
+setInterval(cargarClima, 3000);
+
 
 
 /* ===========================
@@ -129,7 +157,7 @@ function cargarSistema() {
     });
 }
 cargarSistema();
-setInterval(cargarSistema,3000);
+setInterval(cargarSistema,60000);
 
 
 /* ===========================
