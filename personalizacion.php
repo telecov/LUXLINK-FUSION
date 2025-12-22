@@ -82,6 +82,8 @@ $banner          = 'img/' . ($estilo['banner'] ?? 'banner_luxlinkfusion.jpg');
 $radioaficionado = $estilo['radioaficionado']  ?? 'Radioaficionado';
 $zonaHoraria     = $estilo['zona_horaria']     ?? 'America/Santiago';
 $ciudadClima     = $estilo['ubicacion_clima']  ?? 'Santiago';
+$unidadTemp      = $estilo['unidad_temperatura'] ?? 'C';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -176,6 +178,19 @@ $ciudadClima     = $estilo['ubicacion_clima']  ?? 'Santiago';
                    value="<?= htmlspecialchars($ciudadClima) ?>">
         </div>
 
+        <div class="form-group">
+                <label>Unidad de temperatura</label>
+                        <select name="unidad_temperatura">
+                        <option value="C" <?= $unidadTemp === 'C' ? 'selected' : '' ?>>
+                        🌡️ Celsius (°C)
+                        </option>
+                <option value="F" <?= $unidadTemp === 'F' ? 'selected' : '' ?>>
+            🌡️ Fahrenheit (°F)
+        </option>
+    </select>
+</div>
+
+
         <button type="submit">Guardar cambios</button>
     </form>
 
@@ -195,3 +210,4 @@ $ciudadClima     = $estilo['ubicacion_clima']  ?? 'Santiago';
 
 </body>
 </html>
+
