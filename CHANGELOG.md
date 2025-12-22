@@ -1,11 +1,13 @@
 # Changelog
 Todos los cambios relevantes de este proyecto serán documentados en este archivo.
 
-El formato está basado en [Keep a Changelog](https://keepachangelog.com/)
-y este proyecto sigue versionado semántico.
-
 ---
-
+## [1.2.1] - 2025-12-22
+- Se agrega opcion para cambio de sistema metrico en temperatura y velocidad
+  - Seleccion grados C, grados F, velocidad de vientos Km/h y mph, respectivamente
+- Se agrega version.json para llevar el control de las versiones
+- En pie de index.php se refleja version del sistema actual.
+  
 ## [1.2.0] - 2025-12-19
 
 ### 🔐 Seguridad
