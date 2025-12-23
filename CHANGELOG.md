@@ -2,11 +2,23 @@
 Todos los cambios relevantes de este proyecto serán documentados en este archivo.
 
 ---
+## [2.0.0] - 2025-12-23
+- Disponible como release 2.0 se obtiene con la actualizacion via luxlink fusion
+- Se agrega funcion para cambio de idioma INGLES - ESPAÑOL
+- Se mejora la lectura del log, pudiendo mantener el historial la actividad y podio
+- Mejoras visuales en formularios
+  
+
 ## [1.2.1] - 2025-12-22
 - Se agrega opcion para cambio de sistema metrico en temperatura y velocidad
-  - Seleccion grados C, grados F, velocidad de vientos Km/h y mph, respectivamente
+  - Seleccion grados C, grados F, velocidad de vientos Km/h y mph, respectivamente (sugerencia de JOEY WP4MVR)
 - Se agrega version.json para llevar el control de las versiones
 - En pie de index.php se refleja version del sistema actual.
+- Boton de actualizacion automatica sin necesidad de cargar el codigo nuevamente
+
+  ## NOTA
+si estan en una version previa o no tienes la funcion de actualizar
+debes volver a cargar el codigo manual para tener las mejoras
   
 ## [1.2.0] - 2025-12-19
 
