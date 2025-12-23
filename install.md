@@ -58,6 +58,8 @@ Actualizar repositorios e instalar
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install git build-essential cmake -y
+sudo apt install jq -y
+
 ```
 
 Descargar DVReflector YSF
