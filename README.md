@@ -34,7 +34,9 @@ Este proyecto nace como parte del ecosistema de dashboards abiertos:
   - Banner  
   - Radioaficionado/autor  
   - Zona horaria  
-  - Ciudad del clima  
+  - Ciudad del clima
+  - Cambio de idioma (INGLES - ESPAÑOL)
+  - Cambio de formatos de temperatura (C a F)
 
 ### 📝 Logs y análisis
 - Historial de transmisiones.  
