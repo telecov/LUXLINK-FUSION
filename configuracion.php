@@ -338,6 +338,41 @@ $titulo          = $estilo['titulo']           ?? 'LuxLink Fusion';
         </form>
     </div>
 
+<!-- ========== ACTUALIZACIÓN SISTEMA ========== -->
+<div class="grafico">
+  <h3>⬆ Actualización del sistema</h3>
+
+  <p style="font-size:14px;opacity:.85">
+    Actualiza LuxLink Fusion a la última versión oficial.
+    El servicio se reiniciará automáticamente.
+  </p>
+
+  <form action="accion_update.php" method="post"
+        onsubmit="return confirm('⚠ ¿Deseas actualizar LuxLink Fusion ahora?')">
+
+    <button type="submit"
+      style="
+        background:#1565c0;
+        color:white;
+        padding:12px;
+        width:100%;
+        border:none;
+        border-radius:6px;
+        font-weight:bold;
+        cursor:pointer;
+      ">
+      🚀 Ejecutar actualización
+    </button>
+  </form>
+
+  <?php if (isset($_GET['update']) && $_GET['update'] === 'ok'): ?>
+    <p style="color:green;font-weight:bold;margin-top:10px;">
+      ✔ Actualización ejecutada correctamente
+    </p>
+  <?php endif; ?>
+</div>
+
+   
 </div>
 
 <div class="footer">
