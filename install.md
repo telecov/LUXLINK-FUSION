@@ -182,6 +182,17 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
 sudo chown www-data:www-data /var/www/html/monitor_log.php
 sudo chmod 775 /var/www/html/monitor_log.php
+sudo chown root:root /var/www/html/includes/update.sh
+sudo chmod 750 /var/www/html/includes/update.sh
+```
+
+```bash
+sudo visudo
+```
+agregar al final del archivo esta linea para los permisos de sudo
+
+```bash
+www-data ALL=(root) NOPASSWD: /var/www/html/includes/update.sh
 ```
 
 2.1 Crear servicio Telegram Tiempo Real
