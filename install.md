@@ -185,11 +185,11 @@ sudo chmod 775 /var/www/html/monitor_log.php
 sudo chown root:root /var/www/html/includes/update.sh
 sudo chmod 750 /var/www/html/includes/update.sh
 ```
+Edita archivo VISUDO, agregar al final del archivo esta linea para los permisos de sudo, esto es para las futuras actualizacion que pueda tener luxlink fusion
 
 ```bash
 sudo visudo
 ```
-agregar al final del archivo esta linea para los permisos de sudo
 
 ```bash
 www-data ALL=(root) NOPASSWD: /var/www/html/includes/update.sh
