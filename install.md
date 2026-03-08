@@ -10,6 +10,8 @@ si ya lo tienes instalado y funcionando, puedes saltar directamente a la instala
 
 PRECAUCION, si ya tienes un dashboard web funcionando te recomiendo realizar backup, o instalar este dashboard paralelo para que lo pruebes antes, por ejemplo guardarlo en html/ysf/ para asi no perder lo que tienes en html, si es de tu gusto puede eliminar todo y seguir el procedimieto 
 
+INFORMACION IMPORTANTE, si ves mas o menos comandos que los que muestro los videos de instalacion, es por mejoras que se han hecho con el uso del dashboard, al ser mejoras no impactan directamente en el uso del sistema, esta pensado para que opere sin problemas.
+
 ###
 
 * Hardware recomendado:
