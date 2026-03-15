@@ -69,6 +69,9 @@ sudo chown -R www-data:www-data "$APP_DIR"
 sudo find "$APP_DIR" -type d -exec chmod 755 {} \;
 sudo find "$APP_DIR" -type f -exec chmod 644 {} \;
 
+# devolver permiso de ejecución al actualizador
+sudo chmod 755 "$APP_DIR/includes/update.sh"
+
 # ===> Paso 7: Limpieza
 echo "===> Paso 7: Limpieza"
 rm -rf /tmp/luxlink_temp "$ZIP_TMP"
