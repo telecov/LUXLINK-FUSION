@@ -111,3 +111,4 @@ Radioaficionado y desarrollador autodidacta enfocado en telecomunicaciones y sof
 Si este proyecto te ha ayudado, puedes apoyar el desarrollo:
 
 👉 https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
+👉 https://www.paypal.com/donate/?hosted_button_id=MSJZZN9KLHNG6
