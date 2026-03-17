@@ -5,6 +5,9 @@
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
 
+[![YouTube Channel](https://img.shields.io/badge/YouTube-Telecoviajero-red?logo=youtube&logoColor=white)](https://www.youtube.com/@Telecoviajero)
+[![Support](https://img.shields.io/badge/Support-Join%20Membership-red?logo=youtube)](https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join)
+
 **Web-based monitoring system for YSF / Fusion reflectors**  
 **Developed by CA2RDP - Telecoviajero**
 
