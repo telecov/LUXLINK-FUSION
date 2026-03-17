@@ -1,6 +1,7 @@
 # **Web Dashboard for YSF Reflector**
 
 🇺🇸 English | 🇪🇸 Español
+
 ---
 
 ## 🖥️ Requirements
