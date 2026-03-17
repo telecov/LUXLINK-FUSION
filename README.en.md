@@ -109,4 +109,5 @@ Amateur radio operator, self-taught developer, and content creator focused on te
 If this project helped you, consider supporting its development:
 
 👉 https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
+
 👉 https://www.paypal.com/donate/?hosted_button_id=MSJZZN9KLHNG6
