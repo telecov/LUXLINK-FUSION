@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/version-2.1-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-GPLv3-blue)
 
 **Web-based monitoring system for YSF / Fusion reflectors**  
 **Developed by CA2RDP - Telecoviajero**
