@@ -2,70 +2,101 @@
 **Sistema de visualización web para Reflectores YSF / Fusion**  
 **Desarrollado por CA2RDP - Telecoviajero**
 
-LuxLink Fusion es un dashboard moderno, rápido y personalizable, para visualizar en tiempo real la actividad de un reflector **YSF / C4FM**, estado del servidor, estaciones conectadas, tráfico actual, historial, alertas y panel de administración protegido. el nombre LuxLink Fusion, viene inspirado de LUCAS, mi hijo, colores, tipografia y formas todo inspirado en su alegria y actividad de niño.
-este dashboard cuenta con idioma ingles y español apartir de la version 2.0.
-
-## DASHBOARD 
-![Dashboard luxlink fusion](img/dashboard1.png)
-
-## PRESENTACION 
-
-[VIDEO DE YOUTUBE LUXLINK FUSION](https://youtu.be/DxGOtfyECLk?si=vwXx8dPa3arKAv_y)
-[![](https://markdown-videos.deta.dev/youtube.com/DxGOtfyECLk?si=vwXx8dPa3arKAv_y)](https://youtu.be/DxGOtfyECLk?si=vwXx8dPa3arKAv_y)
+🇪🇸 Español | 🇺🇸 [English](README.en.md)
 
 ---
 
-Este proyecto nace como parte del ecosistema de dashboards abiertos:
+LuxLink Fusion es un dashboard moderno, rápido y totalmente personalizable para visualizar en tiempo real la actividad de un reflector **YSF / C4FM**.
+
+Permite monitorear:
+- Estado del servidor  
+- Estaciones conectadas  
+- Tráfico en tiempo real  
+- Historial de actividad  
+- Alertas del sistema  
+- Panel de administración protegido  
+
+💡 El nombre **LuxLink Fusion** nace inspirado en *Lucas*, mi hijo, reflejando colores, tipografía y diseño basados en su energía y alegría.
+
+Desde la versión **2.0**, el sistema incluye soporte multilenguaje (Español / Inglés).
+
+---
+
+## 📸 Dashboard
+![Dashboard luxlink fusion](img/dashboard1.png)
+
+---
+
+## 🎬 Presentación
+
+[Ver video en YouTube](https://youtu.be/DxGOtfyECLk?si=vwXx8dPa3arKAv_y)
+
+---
+
+## 🌍 Ecosistema de proyectos
+
+Este proyecto forma parte de una suite de dashboards abiertos:
+
 - **LYNK25 (P25)**
 - **AuroxLink (SVXLink / EchoLink)**
-- **LuxLink Fusion (YSF / Fusion) ← este repositorio**
+- **LuxLink Fusion (YSF / Fusion)** ← este repositorio
 
 ---
 
 ## 🚀 Características principales
 
 ### 🔥 Tiempo Real
-- Lista de estaciones conectadas con actualización automática.  
-- Última transmisión destacada.  
-- Identificación de usuario mediante **RadioID + QRZ **.
+- Estaciones conectadas en vivo  
+- Última transmisión destacada  
+- Identificación vía **RadioID + QRZ**
 
 ### 📊 Métricas del servidor
-- Carga CPU, Uptime, RAM, Disco.
-- Fecha/hora local configurable (TZ).
-- Estado del reflector YSF.
+- CPU, RAM, Disco, Uptime  
+- Fecha/hora configurable (Timezone)  
+- Estado del reflector YSF  
 
 ### 🧭 Panel de administración
-- Acceso protegido (password por defecto: luxlink2024).  
-- Personalización de:
+- Acceso protegido (password por defecto: `luxlink2024`)  
+- Personalización completa:
   - Título  
-  - Colores primario/secundario  
+  - Colores  
   - Banner  
-  - Radioaficionado/autor  
+  - Autor  
   - Zona horaria  
-  - Ciudad del clima
-  - Cambio de idioma (INGLES - ESPAÑOL)
-  - Cambio de formatos de temperatura (C a F)
+  - Ciudad del clima  
+  - Idioma (ES / EN)  
+  - Temperatura (°C / °F)
 
 ### 📝 Logs y análisis
-- Historial de transmisiones.  
-- Últimas conexiones/desconexiones.   
+- Historial de transmisiones  
+- Conexiones / desconexiones  
 
 ---
 
-## 👉 [Ver instalacion](install.md) 
+## 📦 Instalación
+👉 [Ver instalación](install.md)
 
-## 👉 [Cambios recientes al codigo](CHANGELOG.md) 
+## 📝 Cambios recientes
+👉 [CHANGELOG](CHANGELOG.md)
+
+---
 
 ## 🧑‍💻 Autor
 
-CA2RDP - TelecoViajero
-Radioaficionado, desarrollador autodidacta y creador de contenidos digitales:
+**CA2RDP - Telecoviajero**  
 
-* 🌐 GitHub: https://github.com/telecov
-* 🌐 QRZ: https://www.qrz.com/db/CA2RDP
-* 🔗 TikTok: https://tiktok.com/@telecoviajero
-* 🔗 Instagram: https://instagram.com/telecoviajero
-* 📺 YouTube: https://www.youtube.com/@Telecoviajero
+Radioaficionado y desarrollador autodidacta enfocado en telecomunicaciones y software libre.
 
-## Te invito a suscribirte a miembros de youtube, tu aporte sin duda apoya a seguir creando contenido
-https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
+- 🌐 GitHub: https://github.com/telecov  
+- 🌐 QRZ: https://www.qrz.com/db/CA2RDP  
+- 🎵 TikTok: https://tiktok.com/@telecoviajero  
+- 📸 Instagram: https://instagram.com/telecoviajero  
+- 📺 YouTube: https://www.youtube.com/@Telecoviajero  
+
+---
+
+## ❤️ Apoya el proyecto
+
+Si este proyecto te ha ayudado, puedes apoyar el desarrollo:
+
+👉 https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
