@@ -1,99 +1,144 @@
-**Dashboard Web para Reflector YSF**  
+# **Dashboard Web para Reflector YSF**
 
 ---
 
-🖥️ Requisitos
-*** Tener instalado y corriendo DVREFLECTOR de NOSTAR ***
+## 🖥️ Requisitos
+
+***Debe tener DVREFLECTOR de NOSTAR instalado y en funcionamiento***
 https://github.com/nostar/DVReflectors
 
-si ya lo tienes instalado y funcionando, puedes saltar directamente a la instalacion del DASHBOARD, ahora si estas iniciando puedes seguir el paso a paso apoyando de este video
+Si ya lo tienes instalado y funcionando, puedes ir directamente a la **instalación del DASHBOARD**.
+Si estás comenzando desde cero, puedes seguir el paso a paso apoyándote en el video.
 
-PRECAUCION, si ya tienes un dashboard web funcionando te recomiendo realizar backup, o instalar este dashboard paralelo para que lo pruebes antes, por ejemplo guardarlo en html/ysf/ para asi no perder lo que tienes en html, si es de tu gusto puede eliminar todo y seguir el procedimieto 
+⚠️ **PRECAUCIÓN:**
+Si ya tienes un dashboard web en funcionamiento, se recomienda realizar un **backup**, o instalar este dashboard en paralelo para probarlo antes.
 
-INFORMACION IMPORTANTE, si ves mas o menos comandos que los que muestro los videos de instalacion, es por mejoras que se han hecho con el uso del dashboard, al ser mejoras no impactan directamente en el uso del sistema, esta pensado para que opere sin problemas.
+Por ejemplo, puedes instalarlo en:
 
-###
+```
+/var/www/html/ysf/
+```
 
-* Hardware recomendado:
+De esta forma no perderás tu instalación actual. Si es de tu gusto, luego puedes reemplazar completamente el sistema anterior.
 
-* Requisitos mínimos:
-CPU: Dual Core 1.2 GHz o superior (Intel Atom / Celeron)
-RAM: 1 GB mínimo (2 GB recomendado)
-Almacenamiento: 8 GB (SD o HDD)
-Red: Ethernet 100 Mbps o Wi-Fi b/g/n
-SO: Debian, Ubuntu Server, Raspbian, Bannanian 
+---
 
-* Raspberry PI 3 
+## ℹ️ Información Importante
+
+Si notas diferencias entre los comandos mostrados en este documento y los videos de instalación:
+
+👉 Se debe a mejoras realizadas con el tiempo
+👉 Estas mejoras no afectan el funcionamiento del sistema
+
+El sistema está diseñado para operar de forma estable y sin problemas.
+
+---
+
+## 💻 Hardware recomendado
+
+### Requisitos mínimos
+
+* CPU: Dual Core 1.2 GHz o superior (Intel Atom / Celeron)
+* RAM: 1 GB mínimo (2 GB recomendado)
+* Almacenamiento: 8 GB (SD o HDD)
+* Red: Ethernet 100 Mbps o Wi-Fi b/g/n
+* Sistema Operativo: Debian, Ubuntu Server, Raspbian, Armbian
+
+✔ Recomendado: Raspberry Pi 3 o superior
+
+---
+
+## 🧠 Sistemas compatibles
 
 YSF REFLECTOR ha sido probado y funciona de forma óptima en:
 
-Distribución recomendada: Debian 12+ / Raspbian 12
-Entornos compatibles: Raspberry Pi OS, Ubuntu Server, Armbian (bookwoorm)
-Equipo recomendado: Computador o mini-servidor con Linux
+* Debian 12+
+* Raspbian 12
+* Raspberry Pi OS
+* Ubuntu Server
+* Armbian (Bookworm)
 
-Software necesario:
+Equipo recomendado: computador o mini-servidor con Linux
 
-Apache2
-PHP 8.2 o superior
-Git
-cURL
-nmcli
+---
 
-** Software necesario para configurar **
-IPSCANNER - para identificar ip de equipo
-PUTTY - para administrar Linux por SSH
+## 📦 Software necesario
 
-Para instalar en Raspberry OS se recomieda Raspberry pi Imager
+* Apache2
+* PHP 8.2 o superior
+* Git
+* cURL
+* nmcli
 
+### 🔧 Herramientas para configuración
 
-📡 Instalación del Reflector YSF (DVReflector)
+* IP Scanner → para identificar la IP del equipo
+* PuTTY → para administrar Linux vía SSH
 
-Creacion de usuario
+👉 Para Raspberry Pi se recomienda usar **Raspberry Pi Imager**
+
+---
+
+# 📡 Instalación del Reflector YSF (DVReflector)
+
+## 👤 Creación de usuario
 
 ```bash
 sudo adduser ysfreflector
 sudo usermod -aG sudo ysfreflector
 ```
 
-Actualizar repositorios e instalar 
+---
+
+## 🔄 Actualizar sistema e instalar dependencias
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install git build-essential cmake -y
 sudo apt install jq -y
-
 ```
 
-Descargar DVReflector YSF
+---
+
+## ⬇️ Descargar DVReflector
 
 ```bash
 cd /opt
 sudo git clone https://github.com/nostar/DVReflectors.git
 sudo chmod -R 755 DVReflectors
 cd DVReflectors/YSFReflector
-
 ```
-Compilar e instalar
+
+---
+
+## ⚙️ Compilar
 
 ```bash
 cd /opt/DVReflectors/YSFReflector
 sudo make clean
 sudo make -j4
-
 ```
-Copiar archivo INI a /etc/
+
+---
+
+## 📁 Copiar archivo de configuración
 
 ```bash
- sudo cp /opt/DVReflectors/YSFReflector/YSFReflector.ini /etc/YSFReflector.ini
+sudo cp /opt/DVReflectors/YSFReflector/YSFReflector.ini /etc/YSFReflector.ini
 ```
-Crear carpeta de logs
+
+---
+
+## 📂 Crear carpeta de logs
 
 ```bash
 sudo mkdir -p /var/log/YSFReflector
 sudo chmod 777 /var/log/YSFReflector
 ```
 
-Configurar el archivo /etc/YSFReflector.ini
+---
+
+## ⚙️ Configurar /etc/YSFReflector.ini
 
 ```bash
 sudo nano /etc/YSFReflector.ini
@@ -115,7 +160,9 @@ Port=42000
 Debug=0
 ```
 
-Crear servicio Systemd para autoinicio
+---
+
+## 🔧 Crear servicio systemd (inicio automático)
 
 ```bash
 sudo nano /etc/systemd/system/ysfreflector.service
@@ -135,7 +182,9 @@ Restart=always
 WantedBy=multi-user.target
 ```
 
-Permisos sudoers para ejecutar cambios en el servidor 
+---
+
+## 🔐 Configurar permisos sudo
 
 ```bash
 sudo nano /etc/sudoers.d/99-www-data-ysf
@@ -150,6 +199,10 @@ www-data ALL=(ALL) NOPASSWD: /usr/bin/nmcli, /usr/sbin/ip, /bin/systemctl
 www-data ALL=(ALL) NOPASSWD: /sbin/iwlist
 ```
 
+---
+
+## ▶️ Iniciar y habilitar servicio
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable ysfreflector
@@ -157,10 +210,11 @@ sudo systemctl start ysfreflector
 sudo systemctl status ysfreflector
 ```
 
+---
 
-## 📦 Instalación del Dashboard
+# 📦 Instalación del Dashboard (LuxLink Fusion)
 
-🧰 Paso a paso
+## 🧰 Instalar dependencias
 
 ```bash
 sudo apt update
@@ -171,14 +225,20 @@ sudo apt install network-manager -y
 sudo apt install git -y
 ```
 
-1. Copia la carpeta completa **LUXLINK FUSION** a tu servidor web:  
+---
+
+## 📁 Instalar dashboard
+
 ```bash
 cd /var/www/
 sudo rm -rf /var/www/html
 sudo git clone https://github.com/telecov/LUXLINK-FUSION.git html
 ```
 
-2. Permisos
+---
+
+## 🔐 Permisos
+
 ```bash
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
@@ -187,29 +247,36 @@ sudo chmod 775 /var/www/html/monitor_log.php
 sudo chown root:root /var/www/html/includes/update.sh
 sudo chmod 750 /var/www/html/includes/update.sh
 ```
-Edita archivo VISUDO, agregar al final del archivo esta linea para los permisos de sudo, esto es para las futuras actualizacion que pueda tener luxlink fusion
+
+---
+
+## ⚙️ Permitir actualizaciones
 
 ```bash
 sudo visudo
 ```
 
+Agregar al final:
+
 ```bash
 www-data ALL=(root) NOPASSWD: /var/www/html/includes/update.sh
 ```
 
-2.1 Crear servicio Telegram Tiempo Real
+---
+
+## 🤖 Servicio Telegram en tiempo real
+
 ```bash
 sudo nano /etc/systemd/system/luxlink-monitor.service
 ```
-escribe, guarda este servicio
+
 ```bash
 [Unit]
-Description=LuxLink Fusion - Monitor de Conexiones YSFReflector
+Description=LuxLink Fusion - Monitor de conexiones YSFReflector
 After=network.target
 
 [Service]
-#apuntar al monitor del php
-ExecStart=/usr/bin/php /var/www/html/monitor_log.php 
+ExecStart=/usr/bin/php /var/www/html/monitor_log.php
 Restart=always
 User=www-data
 Group=www-data
@@ -218,9 +285,11 @@ StandardError=append:/var/log/luxlink_monitor_error.log
 
 [Install]
 WantedBy=multi-user.target
-
 ```
-Activa el servicio
+
+---
+
+## ▶️ Activar servicio
 
 ```bash
 sudo systemctl daemon-reload
@@ -229,38 +298,56 @@ sudo systemctl start luxlink-monitor.service
 sudo systemctl status luxlink-monitor.service
 ```
 
-3. Acceso WEB
+---
+
+## 🌐 Acceso Web
+
 Accede desde tu navegador:
 
+```
 http://tu-servidor/
+```
 
-
-Contraseña por defecto
+Contraseña por defecto:
 
 ```bash
 luxlink2024
 ```
 
-### Desde el LUXLINK podras configurar
-Nombre del sistema o reflector
-Dirección IP del reflector
-Puerto y descripción
-Estado de enlace y estadísticas
+---
+
+## ⚙️ Desde LuxLink podrás configurar
+
+* Nombre del sistema o reflector
+* Dirección IP del reflector
+* Puerto y descripción
+* Estado de enlace y estadísticas
+
+---
 
 ## 💬 Telegram
 
 * Activar o desactivar notificaciones
 
-Configura Telegram (opcional)
-Crea un bot en @BotFather
-Obten el token http api
-crea un canal o agraga tu bot como admin al grupo Telegram
-buscar el ID del canal o grupo a utilizar https://api.telegram.org/bot/getUpdates
-Asociar grupo o canal
+### Configuración (opcional):
 
-* Controla mensajes automáticos de actividad o errores
+* Crear un bot en @BotFather
+
+* Obtener el token HTTP API
+
+* Crear un canal o agregar el bot como administrador en un grupo
+
+* Obtener el ID del grupo/canal:
+  https://api.telegram.org/bot/getUpdates
+
+* Asociar grupo o canal
+
+✔ Controlar mensajes automáticos de actividad o errores
+
+---
 
 ## 🎨 Apariencia y encabezado
 
 * Cambiar logos, íconos y textos principales
-* Editar colores o imagen de fondo
+* Personalizar colores o imagen de fondo
+
