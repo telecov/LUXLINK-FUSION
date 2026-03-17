@@ -1,5 +1,7 @@
 # **Dashboard Web para Reflector YSF**
 
+🇪🇸 Español | 🇺🇸 [English](install.en.md)
+
 ---
 
 ## 🖥️ Requisitos
