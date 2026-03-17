@@ -1,47 +1,37 @@
-# 📡 YSF Reflector & LuxLink Fusion Installation Guide
+# **Web Dashboard for YSF Reflector**
 
-🇺🇸 English | 🇪🇸 [Español](install.md)
-
+🇺🇸 English | 🇪🇸 Español
 ---
 
 ## 🖥️ Requirements
 
-⚠️ **Important:**
-You must have **DVReflector (NOSTAR)** installed and running.
+***DVREFLECTOR (NOSTAR) must be installed and running***
+https://github.com/nostar/DVReflectors
 
-👉 https://github.com/nostar/DVReflectors
+If you already have it installed and working, you can skip directly to the **DASHBOARD installation**.
+If you are starting from scratch, you can follow the step-by-step process supported by this video.
 
-If you already have it working, you can skip directly to the **Dashboard Installation** section.
+⚠️ **WARNING:**
+If you already have a web dashboard running, it is recommended to create a backup first, or install this dashboard in parallel so you can test it safely.
 
-If you are starting from scratch, follow the full guide below.
+For example, you can install it in:
 
----
-
-## ⚠️ Warning
-
-If you already have a working web dashboard:
-
-* Make a **backup first**
-* Or install this dashboard in parallel (recommended)
-
-Example:
-
-```bash
+```
 /var/www/html/ysf/
 ```
 
-This way you avoid breaking your current system.
+This way you won’t lose your current setup. If you like it, you can later replace your existing installation.
 
 ---
 
 ## ℹ️ Important Information
 
-If you notice differences between this guide and the installation videos:
+If you notice differences in the commands compared to the installation videos:
 
-👉 It’s due to improvements over time
-👉 These changes do NOT affect functionality
+👉 This is due to improvements made over time.
+👉 These improvements do not directly affect system functionality.
 
-The system is designed to remain stable and backward compatible.
+The system is designed to operate reliably and without issues.
 
 ---
 
@@ -61,25 +51,30 @@ The system is designed to remain stable and backward compatible.
 
 ## 🧠 Supported Systems
 
+YSF REFLECTOR has been tested and works optimally on:
+
 * Debian 12+
+* Raspbian 12
 * Raspberry Pi OS
 * Ubuntu Server
 * Armbian (Bookworm)
+
+Recommended setup: Linux-based computer or mini-server
 
 ---
 
 ## 📦 Required Software
 
 * Apache2
-* PHP 8.2+
+* PHP 8.2 or higher
 * Git
 * cURL
 * nmcli
 
-### Tools (Recommended)
+### 🔧 Tools for configuration
 
-* IP Scanner (to find device IP)
-* PuTTY (SSH access)
+* IP Scanner → to identify the device IP
+* PuTTY → to manage Linux via SSH
 
 👉 For Raspberry Pi: use **Raspberry Pi Imager**
 
@@ -89,16 +84,16 @@ The system is designed to remain stable and backward compatible.
 
 ## 👤 Create user
 
-```bash
+```bash id="z1a2b3"
 sudo adduser ysfreflector
 sudo usermod -aG sudo ysfreflector
 ```
 
 ---
 
-## 🔄 Update system
+## 🔄 Update system and install dependencies
 
-```bash
+```bash id="z1a2b4"
 sudo apt update && sudo apt upgrade -y
 sudo apt install git build-essential cmake -y
 sudo apt install jq -y
@@ -108,7 +103,7 @@ sudo apt install jq -y
 
 ## ⬇️ Download DVReflector
 
-```bash
+```bash id="z1a2b5"
 cd /opt
 sudo git clone https://github.com/nostar/DVReflectors.git
 sudo chmod -R 755 DVReflectors
@@ -119,7 +114,7 @@ cd DVReflectors/YSFReflector
 
 ## ⚙️ Compile
 
-```bash
+```bash id="z1a2b6"
 cd /opt/DVReflectors/YSFReflector
 sudo make clean
 sudo make -j4
@@ -127,9 +122,9 @@ sudo make -j4
 
 ---
 
-## 📁 Copy configuration
+## 📁 Copy configuration file
 
-```bash
+```bash id="z1a2b7"
 sudo cp /opt/DVReflectors/YSFReflector/YSFReflector.ini /etc/YSFReflector.ini
 ```
 
@@ -137,20 +132,20 @@ sudo cp /opt/DVReflectors/YSFReflector/YSFReflector.ini /etc/YSFReflector.ini
 
 ## 📂 Create logs directory
 
-```bash
+```bash id="z1a2b8"
 sudo mkdir -p /var/log/YSFReflector
 sudo chmod 777 /var/log/YSFReflector
 ```
 
 ---
 
-## ⚙️ Configure YSFReflector.ini
+## ⚙️ Configure /etc/YSFReflector.ini
 
-```bash
+```bash id="z1a2b9"
 sudo nano /etc/YSFReflector.ini
 ```
 
-```ini
+```bash id="z1a2c0"
 [General]
 Daemon=0
 
@@ -168,13 +163,13 @@ Debug=0
 
 ---
 
-## 🔧 Create systemd service
+## 🔧 Create systemd service (auto-start)
 
-```bash
+```bash id="z1a2c1"
 sudo nano /etc/systemd/system/ysfreflector.service
 ```
 
-```ini
+```bash id="z1a2c2"
 [Unit]
 Description=YSF Reflector
 After=network.target
@@ -190,13 +185,13 @@ WantedBy=multi-user.target
 
 ---
 
-## 🔐 Sudo permissions
+## 🔐 Configure sudo permissions
 
-```bash
+```bash id="z1a2c3"
 sudo nano /etc/sudoers.d/99-www-data-ysf
 ```
 
-```bash
+```bash id="z1a2c4"
 www-data ALL=NOPASSWD: /bin/systemctl restart ysfreflector.service
 www-data ALL=NOPASSWD: /bin/systemctl start ysfreflector.service
 www-data ALL=NOPASSWD: /bin/systemctl stop ysfreflector.service
@@ -207,9 +202,9 @@ www-data ALL=(ALL) NOPASSWD: /sbin/iwlist
 
 ---
 
-## ▶️ Start service
+## ▶️ Start and enable service
 
-```bash
+```bash id="z1a2c5"
 sudo systemctl daemon-reload
 sudo systemctl enable ysfreflector
 sudo systemctl start ysfreflector
@@ -222,7 +217,7 @@ sudo systemctl status ysfreflector
 
 ## 🧰 Install dependencies
 
-```bash
+```bash id="z1a2c6"
 sudo apt update
 sudo apt install apache2 -y
 sudo apt install php libapache2-mod-php -y
@@ -235,7 +230,7 @@ sudo apt install git -y
 
 ## 📁 Install dashboard
 
-```bash
+```bash id="z1a2c7"
 cd /var/www/
 sudo rm -rf /var/www/html
 sudo git clone https://github.com/telecov/LUXLINK-FUSION.git html
@@ -243,9 +238,9 @@ sudo git clone https://github.com/telecov/LUXLINK-FUSION.git html
 
 ---
 
-## 🔐 Permissions
+## 🔐 Set permissions
 
-```bash
+```bash id="z1a2c8"
 sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
 sudo chown www-data:www-data /var/www/html/monitor_log.php
@@ -256,15 +251,15 @@ sudo chmod 750 /var/www/html/includes/update.sh
 
 ---
 
-## ⚙️ Allow updates via sudo
+## ⚙️ Enable update permissions
 
-```bash
+```bash id="z1a2c9"
 sudo visudo
 ```
 
-Add:
+Add the following line at the end:
 
-```bash
+```bash id="z1a2d0"
 www-data ALL=(root) NOPASSWD: /var/www/html/includes/update.sh
 ```
 
@@ -272,13 +267,13 @@ www-data ALL=(root) NOPASSWD: /var/www/html/includes/update.sh
 
 ## 🤖 Telegram Real-Time Service
 
-```bash
+```bash id="z1a2d1"
 sudo nano /etc/systemd/system/luxlink-monitor.service
 ```
 
-```ini
+```bash id="z1a2d2"
 [Unit]
-Description=LuxLink Fusion - YSF Monitor
+Description=LuxLink Fusion - YSFReflector Connection Monitor
 After=network.target
 
 [Service]
@@ -297,17 +292,18 @@ WantedBy=multi-user.target
 
 ## ▶️ Enable service
 
-```bash
+```bash id="z1a2d3"
 sudo systemctl daemon-reload
 sudo systemctl enable luxlink-monitor.service
 sudo systemctl start luxlink-monitor.service
+sudo systemctl status luxlink-monitor.service
 ```
 
 ---
 
 ## 🌐 Web Access
 
-Open in browser:
+Open your browser and go to:
 
 ```
 http://your-server/
@@ -315,37 +311,43 @@ http://your-server/
 
 Default password:
 
-```bash
+```bash id="z1a2d4"
 luxlink2024
 ```
 
 ---
 
-## 💬 Telegram Setup
+## ⚙️ From LuxLink you can configure
+
+* System or reflector name
+* Reflector IP address
+* Port and description
+* Link status and statistics
+
+---
+
+## 💬 Telegram
+
+* Enable or disable notifications
+
+### Optional setup:
 
 * Create a bot via @BotFather
-* Get API token
-* Add bot to a group/channel
-* Get Chat ID:
 
-```
-https://api.telegram.org/bot<TOKEN>/getUpdates
-```
+* Get the HTTP API token
 
----
+* Create a channel or add the bot as admin to a Telegram group
 
-## 🎨 Customization
+* Get the group/channel ID:
+  https://api.telegram.org/bot/getUpdates
 
-From the dashboard you can configure:
+* Link the group or channel
 
-* Reflector name
-* IP address
-* Port & description
-* System status
-* Visual customization
-* Language (EN / ES)
-* Temperature units
+✔ Control automatic activity or error messages
 
 ---
 
-🚀 Done! Your LuxLink Fusion dashboard should now be fully operational.
+## 🎨 Appearance and Header
+
+* Change logos, icons and main texts
+* Customize colors or background image
