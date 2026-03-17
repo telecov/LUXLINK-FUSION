@@ -1,6 +1,6 @@
 # **Web Dashboard for YSF Reflector**
 
-🇺🇸 English | 🇪🇸 Español
+🇪🇸 [Español](install.md) | 🇺🇸 English
 
 ---
 
