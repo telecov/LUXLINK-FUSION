@@ -3,6 +3,7 @@
 **Desarrollado por CA2RDP - Telecoviajero**
 
 LuxLink Fusion es un dashboard moderno, rápido y personalizable, para visualizar en tiempo real la actividad de un reflector **YSF / C4FM**, estado del servidor, estaciones conectadas, tráfico actual, historial, alertas y panel de administración protegido. el nombre LuxLink Fusion, viene inspirado de LUCAS, mi hijo, colores, tipografia y formas todo inspirado en su alegria y actividad de niño.
+este dashboard cuenta con idioma ingles y español apartir de la version 2.0.
 
 ## DASHBOARD 
 ![Dashboard luxlink fusion](img/dashboard1.png)
