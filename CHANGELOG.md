@@ -1,5 +1,15 @@
 # Changelog
 Todos los cambios relevantes de este proyecto serán documentados en este archivo.
+---
+## [2.1.0] 2026-03-13
+
+- Se agrega funcion para cambio de idioma INGLES - ESPAÑOL
+- Se mejora la lectura del log, de ultimas estaciones escuchadas
+- Se corrigen textos no traduccidos de en version anterior
+- Se cambia boton de donacion PAYPAL a MIEMBROS YOUTUBE
+- Se corrige sidebar en visualizacion movil
+- Correcciones de seguridad
+- Se corrigen permisos de update al actualizar
 
 ---
 ## [2.0.0] - 2025-12-23
