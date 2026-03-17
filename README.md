@@ -46,6 +46,7 @@ Este proyecto forma parte de una suite de dashboards abiertos:
 
 - **LYNK25 (P25)**
 - **AuroxLink (SVXLink / EchoLink)**
+- **NXLINK (NXDN)**
 - **LuxLink Fusion (YSF / Fusion)** ← este repositorio
 
 ---
