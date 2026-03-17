@@ -83,7 +83,7 @@ This project is part of a suite of open dashboards:
 ---
 
 ## 📦 Installation
-👉 [Installation Guide](install_en.md)
+👉 [Installation Guide](install.en.md)
 
 ## 📝 Changelog
 👉 [View Changes](CHANGELOG.md)
