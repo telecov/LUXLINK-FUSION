@@ -4,7 +4,7 @@
 ![Version](https://img.shields.io/badge/version-2.1-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-GPLv3-blue)
 
 **Sistema de visualización web para Reflectores YSF / Fusion**  
 **Desarrollado por CA2RDP - Telecoviajero**
