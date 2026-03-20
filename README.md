@@ -6,8 +6,6 @@
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Telecoviajero-red?logo=youtube&logoColor=white)](https://www.youtube.com/@Telecoviajero)
-[![Apoyo](https://img.shields.io/badge/Apoya-Unirse%20a%20miembros-red?logo=youtube)](https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join)
 
 **Sistema de visualización web para Reflectores YSF / Fusion**  
 **Desarrollado por CA2RDP - Telecoviajero**
