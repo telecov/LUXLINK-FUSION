@@ -5,8 +5,6 @@
 ![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
 ![License](https://img.shields.io/badge/license-GPLv3-blue)
 
-[![YouTube Channel](https://img.shields.io/badge/YouTube-Telecoviajero-red?logo=youtube&logoColor=white)](https://www.youtube.com/@Telecoviajero)
-[![Support](https://img.shields.io/badge/Support-Join%20Membership-red?logo=youtube)](https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join)
 
 **Web-based monitoring system for YSF / Fusion reflectors**  
 **Developed by CA2RDP - Telecoviajero**
@@ -106,8 +104,13 @@ Amateur radio operator, self-taught developer, and content creator focused on te
 
 ## ❤️ Support the Project
 
-If this project helped you, consider supporting its development:
+<p align="center">
+  <b>If this project has helped you, consider supporting it 🚀</b><br><br>
 
-👉 https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
+  <a href="https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join">
+    <img src="https://img.shields.io/badge/Join%20as%20a%20Member-YouTube-red?style=for-the-badge&logo=youtube">
+  </a>
 
-👉 https://www.paypal.com/donate/?hosted_button_id=MSJZZN9KLHNG6
+  <br><br>
+  <i>Your support helps keep developing tools and content for the radio community 📡</i>
+</p>
