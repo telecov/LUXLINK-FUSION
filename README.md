@@ -108,8 +108,13 @@ Radioaficionado y desarrollador autodidacta enfocado en telecomunicaciones y sof
 
 ## ❤️ Apoya el proyecto
 
-Si este proyecto te ha ayudado, puedes apoyar el desarrollo:
+<p align="center">
+  <b>Si este proyecto te ha ayudado, apóyalo 🚀</b><br><br>
 
-👉 https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join
+  <a href="https://www.youtube.com/channel/UCekZOnVxrOoDuJlFCgGKi9A/join">
+    <img src="https://img.shields.io/badge/Unirme%20como%20miembro-YouTube-red?style=for-the-badge&logo=youtube">
+  </a>
 
-👉 https://www.paypal.com/donate/?hosted_button_id=MSJZZN9KLHNG6
+  <br><br>
+  <i>Gracias por apoyar el desarrollo de herramientas para la comunidad 📡</i>
+</p>
