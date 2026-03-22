@@ -21,7 +21,7 @@ For example, you can install it in:
 /var/www/html/ysf/
 ```
 
-This way you won’t lose your current setup. If you like it, you can later replace your existing installation.
+This way you won’t lose your current setup. If you like it, you can later replace your existing installation. Applying these commands will install version 1. Once installed, you can update from the LuxLink Fusion website.
 
 ---
 
