@@ -32,7 +32,7 @@ Si notas diferencias entre los comandos mostrados en este documento y los videos
 👉 Se debe a mejoras realizadas con el tiempo
 👉 Estas mejoras no afectan el funcionamiento del sistema
 
-El sistema está diseñado para operar de forma estable y sin problemas.
+El sistema está diseñado para operar de forma estable y sin problemas. aplicando estos comandos instalaras la version 1, una vez instalada puedes actualizar desde la web luxlink fusion
 
 ---
 
